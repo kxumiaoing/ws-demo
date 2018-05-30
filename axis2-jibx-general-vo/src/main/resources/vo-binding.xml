@@ -1,0 +1,26 @@
+<binding xmlns:ns1="http://localhost:8080/ws/vo" name="Vo" package="com.xumiao.ws.vo" trim-whitespace="true">
+    <namespace uri="http://localhost:8080/ws/vo" default="elements"/>
+    <mapping class="com.xumiao.ws.vo.GetUserInfo" name="getUserInfo">
+        <structure map-as="ns1:User" get-method="getArgs0" set-method="setArgs0" usage="optional" name="args0"/>
+    </mapping>
+    <mapping abstract="true" type-name="ns1:User" class="com.xumiao.ws.vo.User">
+        <value style="element" name="age" get-method="getAge" set-method="setAge" usage="optional"/>
+        <value style="element" name="name" get-method="getName" set-method="setName" usage="optional"/>
+    </mapping>
+    <mapping class="com.xumiao.ws.vo.GetUserInfoResponse" name="getUserInfoResponse">
+        <value style="element" name="return" get-method="getReturn" set-method="setReturn" usage="optional"/>
+    </mapping>
+    <mapping class="com.xumiao.ws.vo.GetUser" name="getUser">
+        <value style="element" name="args0" get-method="getArgs0" set-method="setArgs0" usage="optional"/>
+        <value style="element" name="args1" get-method="getArgs1" set-method="setArgs1"/>
+    </mapping>
+    <mapping class="com.xumiao.ws.vo.GetUserResponse" name="getUserResponse">
+        <structure map-as="ns1:User" get-method="getReturn" set-method="setReturn" usage="optional" name="return"/>
+    </mapping>
+    <mapping class="com.xumiao.ws.vo.GetBlankUser" name="getBlankUser">
+        <structure map-as="ns1:User" get-method="getArgs0" set-method="setArgs0" usage="optional" name="args0"/>
+    </mapping>
+    <mapping class="com.xumiao.ws.vo.GetBlankUserResponse" name="getBlankUserResponse">
+        <structure map-as="ns1:User" get-method="getReturn" set-method="setReturn" usage="optional" name="return"/>
+    </mapping>
+</binding>

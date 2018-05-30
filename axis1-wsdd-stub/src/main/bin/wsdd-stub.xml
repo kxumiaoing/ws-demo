@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="wsdd-stub" basedir="." default="generate.stub">
+    <property environment="env"/>
+    <property name="AXIS1_HOME" value="${env.AXIS1_HOME}"/>
+    <property name="wsdl.uri" value="http://localhost:8080/wsddske/services/UserService?wsdl"/>
+    <property name="src.dir" value="../java"/>
+
+    <path id="axis1.classpath">
+        <fileset dir="${AXIS1_HOME}/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="generate.stub">
+        <java classname="org.apache.axis.wsdl.WSDL2Java" fork="true" classpathref="axis1.classpath">
+            <arg line="-o ${src.dir}"/>
+            <arg line="-p com.xumiao.ws.client"/>
+            <arg line="${wsdl.uri}"/>
+        </java>
+    </target>
+</project>

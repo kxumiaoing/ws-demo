@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="pojo-org" basedir="." default="generate.service">
+    <property environment="env"/>
+    <property name="AXIS2_HOME" value="${env.AXIS2_HOME}"/>
+    <property name="service.name" value="UserService.aar"/>
+    <property name="src.dir" value="../java"/>
+    <property name="build.dir" value="${basedir}/build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+
+    <path id="axis2.classpath">
+        <fileset dir="${AXIS2_HOME}/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="clean" >
+        <delete dir="${build.dir}"/>
+        <delete file="${service.name}"/>
+    </target>
+
+    <target name="init" depends="clean">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${classes.dir}/META-INF"/>
+    </target>
+
+    <target name="compiler" depends="init">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="axis2.classpath" includeantruntime="on"/>
+    </target>
+
+    <target name="generate.service" depends="compiler">
+        <copy file="services.xml" todir="${classes.dir}/META-INF"/>
+        <jar destfile="${service.name}" basedir="${classes.dir}"/>
+    </target>
+</project>

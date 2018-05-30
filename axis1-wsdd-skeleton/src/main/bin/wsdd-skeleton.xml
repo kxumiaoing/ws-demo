@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="wsdd-skeleton" basedir="." default="generate.skeleton">
+    <property environment="env"/>
+    <property name="AXIS1_HOME" value="${env.AXIS1_HOME}"/>
+    <property name="wsdl.uri" value="UserService.wsdl"/>
+    <property name="src.dir" value="../java"/>
+
+    <path id="axis1.classpath">
+        <fileset dir="${AXIS1_HOME}/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="generate.skeleton">
+        <java classname="org.apache.axis.wsdl.WSDL2Java" fork="true" classpathref="axis1.classpath">
+            <arg line="-o ${src.dir}"/>
+            <arg line="--server-side"/>
+            <arg line="--skeletonDeploy true"/>
+            <arg line="${wsdl.uri}"/>
+        </java>
+    </target>
+</project>

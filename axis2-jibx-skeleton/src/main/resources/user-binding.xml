@@ -1,0 +1,7 @@
+<binding force-classes="true" xmlns:ns1="http://localhost:8080/ws/vo" name="Axis2Vo" package="com.xumiao.ws.vo" trim-whitespace="true">
+    <namespace uri="http://localhost:8080/ws/vo" default="elements"/>
+    <mapping abstract="true" type-name="ns1:User" class="com.xumiao.ws.vo.User">
+        <value style="element" name="age" get-method="getAge" set-method="setAge" usage="optional"/>
+        <value style="element" name="name" get-method="getName" set-method="setName" usage="optional"/>
+    </mapping>
+</binding>

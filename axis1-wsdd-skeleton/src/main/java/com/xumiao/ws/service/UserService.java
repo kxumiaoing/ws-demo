@@ -1,0 +1,14 @@
+/**
+ * UserService.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.xumiao.ws.service;
+
+public interface UserService extends java.rmi.Remote {
+    public com.xumiao.ws.vo.User getBlankUser(com.xumiao.ws.vo.User in0) throws java.rmi.RemoteException;
+    public com.xumiao.ws.vo.User getUser(java.lang.String in0, int in1) throws java.rmi.RemoteException;
+    public java.lang.String getUserInfo(com.xumiao.ws.vo.User in0) throws java.rmi.RemoteException;
+}

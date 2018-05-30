@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>ws-demo</artifactId>
+        <groupId>com.xumiao.ws</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>axis2-pom</artifactId>
+    <packaging>pom</packaging>
+
+    <properties>
+        <axis2-version>1.7.8</axis2-version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-transport-http</artifactId>
+            <version>${axis2-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-transport-local</artifactId>
+            <version>${axis2-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-adb</artifactId>
+            <version>${axis2-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-xmlbeans</artifactId>
+            <version>${axis2-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-jibx</artifactId>
+            <version>${axis2-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jibx</groupId>
+            <artifactId>jibx-run</artifactId>
+            <version>${jibx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jibx</groupId>
+            <artifactId>jibx-bind</artifactId>
+            <version>${jibx.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>

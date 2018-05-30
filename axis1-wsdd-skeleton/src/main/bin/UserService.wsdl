@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://localhost:8080/wsddorg/services/UserService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://localhost:8080/wsddorg/services/UserService" xmlns:intf="http://localhost:8080/wsddorg/services/UserService" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="http://vo.ws.xumiao.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema targetNamespace="http://vo.ws.xumiao.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="User">
+    <sequence>
+     <element name="age" type="xsd:int"/>
+     <element name="name" nillable="true" type="soapenc:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getBlankUserRequest">
+
+      <wsdl:part name="in0" type="tns1:User"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserResponse">
+
+      <wsdl:part name="getUserReturn" type="tns1:User"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBlankUserResponse">
+
+      <wsdl:part name="getBlankUserReturn" type="tns1:User"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserRequest">
+
+      <wsdl:part name="in0" type="soapenc:string"/>
+
+      <wsdl:part name="in1" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserInfoResponse">
+
+      <wsdl:part name="getUserInfoReturn" type="soapenc:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserInfoRequest">
+
+      <wsdl:part name="in0" type="tns1:User"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="UserService">
+
+      <wsdl:operation name="getBlankUser" parameterOrder="in0">
+
+         <wsdl:input message="impl:getBlankUserRequest" name="getBlankUserRequest"/>
+
+         <wsdl:output message="impl:getBlankUserResponse" name="getBlankUserResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUser" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getUserRequest" name="getUserRequest"/>
+
+         <wsdl:output message="impl:getUserResponse" name="getUserResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserInfo" parameterOrder="in0">
+
+         <wsdl:input message="impl:getUserInfoRequest" name="getUserInfoRequest"/>
+
+         <wsdl:output message="impl:getUserInfoResponse" name="getUserInfoResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="UserServiceSoapBinding" type="impl:UserService">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getBlankUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getBlankUserRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/wsddorg/services/UserService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getBlankUserResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/wsddorg/services/UserService" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUserRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/wsddorg/services/UserService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUserResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/wsddorg/services/UserService" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUserInfoRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/wsddorg/services/UserService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUserInfoResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/wsddorg/services/UserService" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="UserServiceService">
+
+      <wsdl:port binding="impl:UserServiceSoapBinding" name="UserService">
+
+         <wsdlsoap:address location="http://localhost:8080/wsddorg/services/UserService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

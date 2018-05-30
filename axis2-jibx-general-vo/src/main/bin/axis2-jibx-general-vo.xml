@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="axis2-jibx-general-vo" basedir="." default="generate.jibx.code">
+    <property environment="env"/>
+    <property name="JIBX_HOME" value="${env.JIBX_HOME}"/>
+    <property name="src.dir" value="../java"/>
+    <property name="xsd.name" value="vo.xsd"/>
+    <property name="binding.name" value="../resources/vo-binding.xml"/>
+
+    <path id="jibx.classpath">
+        <fileset dir="${JIBX_HOME}/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="generate.jibx.code">
+        <java classname="org.jibx.schema.codegen.CodeGen" fork="yes" classpathref="jibx.classpath" failonerror="true">
+            <arg line="-t ${src.dir}"/>
+            <arg line="-b ${binding.name}"/>
+            <arg line="-p com.xumiao.ws.vo"/>
+            <arg line="${xsd.name}"/>
+        </java>
+    </target>
+</project>

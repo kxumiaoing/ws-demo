@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="axis2-wsdl" basedir="." default="generate.wsdl">
+    <property environment="env"/>
+    <property name="AXIS2_HOME" value="${env.AXIS2_HOME}"/>
+    <property name="wsdl.uri" value="../resources/META-INF/UserService.wsdl"/>
+    <property name="src.dir" value="../java"/>
+    <property name="build.dir" value="${basedir}/build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+
+    <path id="axis2.classpath">
+        <fileset dir="${AXIS2_HOME}/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <path id="wsdl.classpath">
+        <fileset dir="${AXIS2_HOME}/lib">
+            <include name="*.jar"/>
+        </fileset>
+        <pathelement location="${classes.dir}"/>
+    </path>
+
+    <target name="clean" >
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="init" depends="clean">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${classes.dir}"/>
+    </target>
+
+    <target name="compiler" depends="init">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="axis2.classpath" includeantruntime="on"/>
+    </target>
+
+    <target name="generate.wsdl" depends="compiler">
+        <exec executable="${AXIS2_HOME}/bin/java2wsdl.sh">
+            <arg line="-of ${wsdl.uri}"/>
+            <arg line="-cp ${classes.dir}"/>
+            <arg line="-cn com.xumiao.ws.service.UserService"/>
+            <!--<arg line="-p2n [com.xumiao.ws.vo,http://localhost:8080/ws/vo] [com.xumiao.ws.service,http://localhost:8080/ws/service]"/>-->
+            <arg line="-p2n [com.xumiao.ws.vo,http://localhost:8080/ws/vo]"/>
+            <arg line="-stn http://localhost:8080/ws/vo"/>
+            <arg line="-tn http://localhost:8080/ws/service"/>
+        </exec>
+    </target>
+</project>

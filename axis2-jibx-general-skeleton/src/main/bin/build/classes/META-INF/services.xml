@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.7.4  Built on : Oct 21, 2016 (10:47:34 BST) -->
+<serviceGroup>
+    <service name="UserService">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="com.xumiao.ws.service.UserServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">com.xumiao.ws.service.UserServiceSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="getBlankUser" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://localhost:8080/ws/service">
+            <actionMapping>urn:getBlankUser</actionMapping>
+            <outputActionMapping>urn:getBlankUserResponse</outputActionMapping>
+        </operation>
+        <operation name="getUserInfo" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://localhost:8080/ws/service">
+            <actionMapping>urn:getUserInfo</actionMapping>
+            <outputActionMapping>urn:getUserInfoResponse</outputActionMapping>
+        </operation>
+        <operation name="getUser" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://localhost:8080/ws/service">
+            <actionMapping>urn:getUser</actionMapping>
+            <outputActionMapping>urn:getUserResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

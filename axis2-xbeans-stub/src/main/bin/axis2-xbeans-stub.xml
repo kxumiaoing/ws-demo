@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="axis2-xbeans-stub" basedir="." default="java">
+    <property environment="env"/>
+    <property name="AXIS2_HOME" value="${env.AXIS2_HOME}"/>
+    <property name="wsdl.uri" value="http://localhost:8080/xbeansske/services/UserService?wsdl"/>
+    <property name="src.dir" value="../java"/>
+    <property name="build.dir" value="${basedir}/build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="lib.dir" value="${build.dir}/lib"/>
+    <property name="xbeans-packaged.jar.name" value="xbeans-packaged.jar"/>
+
+    <path id="axis2.classpath">
+        <fileset dir="${AXIS2_HOME}/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="generate.stub">
+        <java classname="org.apache.axis2.wsdl.WSDL2Java" fork="true" classpathref="axis2.classpath">
+            <arg line="-uri ${wsdl.uri}"/>
+            <arg line="-s"/>
+            <arg line="-l java"/>
+            <arg line="-d xmlbeans"/>
+            <arg line="-ns2p http://localhost:8080/ws/vo=com.xumiao.ws.vo"/>
+            <arg line="-p com.xumiao.ws.client"/>
+            <arg line="-o ${src.dir}"/>
+        </java>
+    </target>
+
+    <path id="compiler.classpath">
+        <fileset dir="${AXIS2_HOME}/lib">
+            <include name="*.jar"/>
+        </fileset>
+        <fileset dir="${lib.dir}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <path id="java.classpath">
+        <fileset dir="${AXIS2_HOME}/lib">
+            <include name="*.jar"/>
+        </fileset>
+        <fileset dir="${lib.dir}">
+            <include name="*.jar"/>
+        </fileset>
+        <pathelement location="${classes.dir}"/>
+    </path>
+
+    <target name="clean" >
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="init" depends="clean">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${lib.dir}"/>
+    </target>
+
+    <target name="package.jar">
+        <jar destfile="${lib.dir}/${xbeans-packaged.jar.name}" basedir="${basedir}/../resources" includes="**/*.xsb,**/*.class"/>
+    </target>
+
+    <target name="compiler" depends="init,package.jar">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="compiler.classpath" includeantruntime="on"/>
+    </target>
+
+    <target name="java" depends="compiler">
+        <java classname="com.xumiao.ws.client.Axis2XbeansClient" fork="true" classpathref="java.classpath"/>
+    </target>
+</project>

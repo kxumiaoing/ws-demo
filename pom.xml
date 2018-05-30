@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.xumiao.ws</groupId>
+    <artifactId>ws-demo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>axis1-pom</module>
+        <module>axis1-jws-org</module>
+        <module>axis1-client</module>
+        <module>axis1-wsdd-org</module>
+        <module>axis1-wsdd-wsdl</module>
+        <module>axis1-wsdd-skeleton</module>
+        <module>axis1-wsdd-stub</module>
+        <module>axis2-pom</module>
+        <module>axis2-axiom-org</module>
+        <module>axis2-axiom-client</module>
+        <module>axis2-pojo-org</module>
+        <module>axis2-wsdl</module>
+        <module>axis2-adb-stub</module>
+        <module>axis2-adb-skeleton</module>
+        <module>axis2-xbeans-skeleton</module>
+        <module>axis2-xbeans-stub</module>
+        <module>axis2-jibx-skeleton</module>
+        <module>axis2-jibx-stub</module>
+        <module>axis2-jibx-vo</module>
+        <module>axis2-jibx-general-vo</module>
+        <module>axis2-jibx-general-skeleton</module>
+        <module>axis2-jibx-general-stub</module>
+    </modules>
+
+    <properties>
+        <jibx.version>1.2.6</jibx.version>
+        <project.jdk.version>1.6</project.jdk.version>
+        <project.source.encoding>UTF-8</project.source.encoding>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>${project.source.encoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${project.jdk.version}</source>
+                    <target>${project.jdk.version}</target>
+                    <encoding>${project.source.encoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

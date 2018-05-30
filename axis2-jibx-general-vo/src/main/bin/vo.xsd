@@ -1,0 +1,51 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://localhost:8080/ws/vo" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://localhost:8080/ws/vo">
+    <xs:element name="getUserInfo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="args0" nillable="true" type="ns:User"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="User">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="age" type="xs:int"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="getUserInfoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getUser">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="args0" nillable="true" type="xs:string"/>
+                <xs:element name="args1" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getUserResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="ns:User"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getBlankUser">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="args0" nillable="true" type="ns:User"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getBlankUserResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="ns:User"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

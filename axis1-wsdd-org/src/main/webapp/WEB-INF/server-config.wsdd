@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+    <service name="UserService" provider="java:RPC">
+        <parameter name="className" value="com.xumiao.ws.service.UserService"/>
+        <parameter name="allowedMethods" value="*"/>
+        <typeMapping qname="ns:User"
+                     xmlns:ns="http://localhost:8080/ws/vo"
+                     languageSpecificType="java:com.xumiao.ws.vo.User"
+                     serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                     deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                     encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </service>
+
+    <transport name="http">
+        <requestFlow>
+            <handler type="java:org.apache.axis.handlers.http.URLMapper"/>
+        </requestFlow>
+    </transport>
+</deployment>

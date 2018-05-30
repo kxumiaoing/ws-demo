@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<service name="HelloService">
+
+    <parameter name="ServiceClass">com.xumiao.ws.service.HelloService</parameter>
+
+    <operation name="sayHello">
+        <messageReceiver class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver"/>
+    </operation>
+</service>
