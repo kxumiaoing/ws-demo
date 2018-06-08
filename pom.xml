@@ -32,6 +32,10 @@
         <module>axis2-jibx-general-vo</module>
         <module>axis2-jibx-general-skeleton</module>
         <module>axis2-jibx-general-stub</module>
+        <module>jax-ws-org-main-server</module>
+        <module>jax-ws-org-client</module>
+        <module>jax-ws-org-servlet-server</module>
+        <module>jax-ws-stub</module>
     </modules>
 
     <properties>

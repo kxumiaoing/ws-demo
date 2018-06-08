@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="jax-ws-stub" basedir="." default="generate.stub">
+    <property environment="env"/>
+    <property name="wsdl.uri" value="http://localhost:8080/jaxservlet/services/UserService?wsdl"/>
+    <property name="src.dir" value="${basedir}/../java"/>
+    <target name="generate.stub">
+        <exec executable="wsimport">
+            <arg line="-keep"/>
+            <arg line="-Xnocompile"/>
+            <arg line="-d ${src.dir}"/>
+            <arg line="-p com.xumiao.ws.client"/>
+            <arg line="${wsdl.uri}"/>
+        </exec>
+    </target>
+</project>

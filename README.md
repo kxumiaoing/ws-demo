@@ -20,6 +20,12 @@ axis2
     3.3 jibx
     
     run axis2-jibx-vo first for compiling the bindings into class files, then run axis2-jibx-skeleton and axis2-jibx-stub.
+
+jaxws ri
+========
+1. main publish;
+
+2. servlet publish;
         
 error
 =====
