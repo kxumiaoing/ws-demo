@@ -36,6 +36,13 @@
         <module>jax-ws-org-client</module>
         <module>jax-ws-org-servlet-server</module>
         <module>jax-ws-stub</module>
+        <module>cxf-pom</module>
+        <module>cxf-soap-jaxb-server</module>
+        <module>cxf-soap-jaxb-client-jaxws</module>
+        <module>cxf-soap-jaxb-stub</module>
+        <module>cxf-soap-jaxb-client-spring</module>
+        <module>cxf-soap-jaxb-client-xfire</module>
+        <module>cxf-soap-jaxb-skeleton</module>
     </modules>
 
     <properties>
