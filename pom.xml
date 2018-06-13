@@ -43,6 +43,8 @@
         <module>cxf-soap-jaxb-client-spring</module>
         <module>cxf-soap-jaxb-client-xfire</module>
         <module>cxf-soap-jaxb-skeleton</module>
+        <module>cxf-soap-jaxb-client-message</module>
+        <module>cxf-soap-jaxb-client-payload</module>
     </modules>
 
     <properties>

@@ -14,6 +14,7 @@
     <target name="generate.service">
         <java classname="org.apache.cxf.tools.wsdlto.WSDLToJava" fork="true" classpathref="cxf.classpath">
             <arg line="-server"/>
+            <arg line="-impl"/>
             <arg line="-p http://localhost:8080/jaxb/services=com.xumiao.ws.service"/>
             <arg line="-p http://localhost:8080/jaxb/vo=com.xumiao.ws.vo"/>
             <arg line="-d ${src.dir}"/>

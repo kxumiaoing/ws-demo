@@ -6,7 +6,10 @@ import com.xumiao.ws.vo.User;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 
-@WebService(endpointInterface = "com.xumiao.ws.service.UserService")
+/**
+ * portName(wsdl:port), endpointInterface are allowed.
+ * */
+@WebService(portName = "UserServicePort",endpointInterface = "com.xumiao.ws.service.UserService")
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 public class UserServiceImpl implements UserService {
     @Override

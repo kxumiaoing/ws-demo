@@ -1,11 +1,5 @@
 package com.xumiao.ws.vo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
-
-@XmlType(name = "User",propOrder = {"name","age"},namespace = "http://localhost:8080/jaxb/vo")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class User {
     private String name;
     private Integer age;

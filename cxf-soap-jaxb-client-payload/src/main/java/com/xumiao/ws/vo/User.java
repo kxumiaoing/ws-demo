@@ -1,5 +1,13 @@
 package com.xumiao.ws.vo;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(name = "user")
+@XmlType(propOrder = {"name","age"})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class User {
     private String name;
     private Integer age;

@@ -52,6 +52,10 @@ cxf
      - jaxws api
      
      - xfire api
+     
+     - by message
+     
+     - by payload
  
 error
 =====
